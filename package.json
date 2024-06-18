@@ -24,7 +24,8 @@
 		"watch": "tsup --watch",
 		"test": "xo && ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
-		"prepublishOnly": "del-cli dist && tsc",
+		"prepublishOnly": "rm -rf dist/* && pnpm run build",
+		"release": "release-it --only-version",
 		"lint": "eslint './source/**/*{js,ts,jsx,tsx}'",
 		"lint:fix": "pnpm lint --fix"
 	},
