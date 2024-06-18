@@ -1,6 +1,6 @@
 {
 	"name": "adm-p-queue",
-	"version": "8.0.1",
+	"version": "8.0.2",
 	"description": "Promise queue with concurrency control",
 	"license": "MIT",
 	"repository": "albdima83/p-queue",
