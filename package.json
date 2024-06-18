@@ -17,12 +17,12 @@
 	},
 	"sideEffects": false,
 	"engines": {
-		"node": ">=18"
+		"node": ">=22"
 	},
 	"scripts": {
 		"build": "rm -rf dist/* && tsup",
 		"watch": "tsup --watch",
-		"test": "xo && ava && del-cli dist && tsc && tsd",
+		"test": "ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
 		"prepublishOnly": "rm -rf dist/* && pnpm run build",
 		"release": "release-it --only-version",
@@ -73,6 +73,8 @@
 		"in-range": "^3.0.0",
 		"lint-staged": "^15.2.7",
 		"p-defer": "^4.0.0",
+		"prettier-plugin-organize-imports": "^3.2.4",
+		"prettier-plugin-sh": "^0.14.0",
 		"random-int": "^3.0.0",
 		"release-it": "^17.3.0",
 		"time-span": "^5.1.0",
@@ -99,12 +101,5 @@
 		"nodeArguments": [
 			"--import=tsx/esm"
 		]
-	},
-	"xo": {
-		"rules": {
-			"@typescript-eslint/member-ordering": "off",
-			"@typescript-eslint/no-floating-promises": "off",
-			"@typescript-eslint/no-invalid-void-type": "off"
-		}
 	}
 }
