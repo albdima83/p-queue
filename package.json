@@ -27,7 +27,8 @@
 		"prepublishOnly": "rm -rf dist/* && pnpm run build",
 		"release": "release-it --only-version",
 		"lint": "eslint './source/**/*{js,ts,jsx,tsx}'",
-		"lint:fix": "pnpm lint --fix"
+		"lint:fix": "pnpm lint --fix",
+		"pre-commit": "lint-staged"
 	},
 	"files": [
 		"dist"
@@ -60,25 +61,32 @@
 		"p-timeout": "^6.1.2"
 	},
 	"devDependencies": {
-		"release-it": "^17.3.0",
-		"tsup": "^8.1.0",
-		"@typescript-eslint/parser": "^7.13.1",
-		"auto-changelog": "^2.4.0",
 		"@sindresorhus/tsconfig": "^5.0.0",
 		"@types/benchmark": "^2.1.5",
 		"@types/node": "^20.10.4",
+		"@typescript-eslint/parser": "^7.13.1",
+		"auto-changelog": "^2.4.0",
 		"ava": "^5.3.1",
 		"benchmark": "^2.1.4",
 		"del-cli": "^5.1.0",
 		"delay": "^6.0.0",
 		"in-range": "^3.0.0",
+		"lint-staged": "^15.2.7",
 		"p-defer": "^4.0.0",
 		"random-int": "^3.0.0",
+		"release-it": "^17.3.0",
 		"time-span": "^5.1.0",
 		"tsd": "^0.29.0",
+		"tsup": "^8.1.0",
 		"tsx": "^4.6.2",
 		"typescript": "^5.3.3",
 		"xo": "^0.56.0"
+	},
+	"lint-staged": {
+		"**/*.{js,ts,jsx,tsx}": [
+			"eslint --fix",
+			"prettier --write"
+		]
 	},
 	"ava": {
 		"workerThreads": false,
