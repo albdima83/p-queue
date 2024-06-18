@@ -1,6 +1,8 @@
-# p-queue
+# adm-p-queue
 
 > Promise queue with concurrency control
+
+This is a fork from [p-queue](https://github.com/sindresorhus/p-queue)
 
 Useful for rate-limiting async (or sync) operations. For example, when interacting with a REST API or when doing CPU/memory intensive tasks.
 
@@ -11,10 +13,9 @@ Note that the project is feature complete. We are happy to review pull requests,
 ## Install
 
 ```sh
-npm install p-queue
+nvm use
+pnpm install adm-p-queue
 ```
-
-**Warning:** This package is native [ESM](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) and no longer provides a CommonJS export. If your project uses CommonJS, you'll have to [convert to ESM](https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c). Please don't open issues for questions regarding CommonJS / ESM.
 
 ## Usage
 

@@ -1,24 +1,32 @@
 {
-	"name": "p-queue",
+	"name": "adm-p-queue",
 	"version": "8.0.1",
 	"description": "Promise queue with concurrency control",
 	"license": "MIT",
-	"repository": "sindresorhus/p-queue",
+	"repository": "albdima83/p-queue",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"type": "module",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.js",
 	"exports": {
-		"types": "./dist/index.d.ts",
-		"default": "./dist/index.js"
+		".": {
+			"types": "./dist/index.d.ts",
+			"require": "./dist/index.cjs",
+			"import": "./dist/index.js"
+		}
 	},
 	"sideEffects": false,
 	"engines": {
 		"node": ">=18"
 	},
 	"scripts": {
-		"build": "del-cli dist && tsc",
+		"build": "rm -rf dist/* && tsup",
+		"watch": "tsup --watch",
 		"test": "xo && ava && del-cli dist && tsc && tsd",
 		"bench": "node --import=tsx/esm bench.ts",
-		"prepublishOnly": "del-cli dist && tsc"
+		"prepublishOnly": "del-cli dist && tsc",
+		"lint": "eslint './source/**/*{js,ts,jsx,tsx}'",
+		"lint:fix": "pnpm lint --fix"
 	},
 	"files": [
 		"dist"
@@ -51,6 +59,10 @@
 		"p-timeout": "^6.1.2"
 	},
 	"devDependencies": {
+		"release-it": "^17.3.0",
+		"tsup": "^8.1.0",
+		"@typescript-eslint/parser": "^7.13.1",
+		"auto-changelog": "^2.4.0",
 		"@sindresorhus/tsconfig": "^5.0.0",
 		"@types/benchmark": "^2.1.5",
 		"@types/node": "^20.10.4",

@@ -1,0 +1,15 @@
+{
+	"git": {
+		"requireBranch": "main",
+		"commitMessage": ":rocket: bump version v${version}",
+		"changelog": "npx auto-changelog --stdout --commit-limit false -u --template https://raw.githubusercontent.com/release-it/release-it/master/templates/changelog-compact.hbs"
+	},
+	"github": {
+		"release": true
+	},
+	"hooks": {
+		"before:init": ["git pull", "pnpm run lint", "pnpm run test"],
+		"after:bump": "npx auto-changelog -p",
+		"after:release": "git push origin HEAD"
+	}
+}
